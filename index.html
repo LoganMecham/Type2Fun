@@ -3,74 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Type2Fun guided bike tours in Utah. Weekly rides, local support, and outdoor adventure."
+    />
     <title>Type2Fun | Guided Utah Bike Tours</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <div class="site-header__inner">
-        <a href="index.html" class="site-brand" aria-label="Type2Fun Home">
+      <div class="container site-header__inner">
+        <a href="./index.html" class="site-brand" aria-label="Type2Fun Home">
           <img
             class="site-brand__logo"
-            src="Cyclist logo with mountain and sun.png"
+            src="assets/logo.png"
             alt="Type2Fun logo"
+            onerror="this.style.display='none'"
           />
+                  <span class="site-brand__text">Type2Fun</span>
         </a>
         <nav aria-label="Primary navigation">
           <ul class="site-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="./index.html" aria-current="page">Home</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <section class="hero">
-      <div class="hero__content">
-        <h1>Guided Bike Tours Around Utah</h1>
+      <div class="container hero__content">
+        <h1>Ride Utah with local guides who know every great trail.</h1>
         <p>
-          Adventure-ready rides with local guides who help you explore Utah's
-          best terrain.
+          Type2Fun delivers simple, high-quality guided bike tours with a focus
+          on fun, fitness, and mountain views.
         </p>
+        <div class="cta-row">
+          <a class="button" href="#contact">Book Your Ride</a>
+        </div>
       </div>
     </section>
 
     <main>
-      <section class="card" aria-labelledby="calendar-heading">
-        <div class="section-title-row">
-          <h2 id="calendar-heading">Ride Calendar</h2>
-          <div class="calendar-controls">
-            <button id="prev-month" type="button" aria-label="Previous month">◀</button>
-            <p id="month-label" aria-live="polite"></p>
-            <button id="next-month" type="button" aria-label="Next month">▶</button>
-          </div>
+      <section class="section">
+        <div class="container grid-two">
+          <article class="card">
+            <h2>Tour Details</h2>
+            <ul>
+              <li>Pricing is custom so each route matches your goals and skill level.</li>
+              <li>Gear rentals available: bikes, bags, and tires.</li>
+              <li>Multi-day tours can include vehicle support.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h2>Weekly Schedule</h2>
+            <ul class="schedule">
+              <li><strong>Saturday Guided Ride</strong> <span>7:00 AM - 9:00 AM</span></li>
+              <li><strong>Location</strong> <span>Spanish Fork, Utah</span></li>
+              <li><strong>Booking</strong> <span>Reserve ahead to lock in your spot</span></li>
+            </ul>
+          </article>
         </div>
-        <p class="subtle">
-          Every Saturday is booked for a guided ride from <strong>7:00 AM - 9:00 AM</strong>
-          in <strong>Spanish Fork, Utah</strong>.
-        </p>
-        <div id="calendar" class="calendar" aria-label="Monthly calendar"></div>
       </section>
 
-      <section class="card" aria-labelledby="details-heading">
-        <h2 id="details-heading">Tour Details</h2>
-        <ul class="details-list">
-          <li><strong>Pricing:</strong> Inquiries are needed so we can pre-scout the ride and make sure it's perfect for you.</li>
-          <li><strong>Gear rentals available:</strong> Bags, bikes, and tires.</li>
-          <li><strong>Multi-day adventure support:</strong> Vehicle support is available.</li>
-        </ul>
-      </section>
-
-      <section class="card" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact Type2Fun</h2>
-        <p><strong>Phone:</strong> <a href="tel:8015138160">801-513-8160</a></p>
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:type2funinc@gmail.com">type2funinc@gmail.com</a>
-        </p>
+      <section id="contact" class="section section--soft">
+        <div class="container">
+          <article class="card">
+            <h2>Contact Type2Fun</h2>
+            <div class="contact-list">
+              <p><strong>Phone:</strong> <a href="tel:8015138160">801-513-8160</a></p>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:type2funinc@gmail.com">type2funinc@gmail.com</a>
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <footer class="site-footer">
+      <div class="container">
+        <p><strong>Type2Fun</strong> | Guided Utah Bike Tours</p>
+        <p>Phone: 801-513-8160 | Email: type2funinc@gmail.com</p>
+      </div>
+    </footer>
   </body>
 </html>
