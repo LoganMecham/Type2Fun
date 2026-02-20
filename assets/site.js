@@ -299,7 +299,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     initLogo();
     initNavCurrent();
-    renderFeaturedCards("featured-rides-home");
     renderFeaturedCards("featured-rides-tours");
     initCalendar();
     initGallery();
