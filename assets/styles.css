@@ -70,22 +70,6 @@ a { color: var(--brand-dark); }
   font-weight: 600;
 }
 
-.featured-rides-compact {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 0.7rem;
-  margin-bottom: 1rem;
-}
-
-.featured-mini-card {
-  background: #f0faf8;
-  border: 1px solid #cde8e2;
-  border-radius: 12px;
-  padding: 0.7rem 0.9rem;
-  font-weight: 700;
-  color: var(--brand-dark);
-  text-align: center;
-}
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   background: #e8f7f5;
@@ -154,6 +138,31 @@ p { margin: 0 0 0.9rem; color: var(--muted); }
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.how-it-works {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.how-step {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.how-step__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
 }
 .badge {
   background: #f0faf8;

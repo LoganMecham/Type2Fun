@@ -1,4 +1,7 @@
 (function () {
+  if (window.__type2funSiteInitialized) return;
+  window.__type2funSiteInitialized = true;
+
   const featuredRides = [
     {
       key: "cathedral-valley",
@@ -60,10 +63,10 @@
 
   function renderFeaturedCards(rootId) {
     const root = document.getElementById(rootId);
-    if (!root) return;
+    if (!root || root.children.length > 0) return;
     const isTourGrid = rootId === "featured-rides-tours";
+    if (!isTourGrid) return;
 
-    root.innerHTML = "";
     featuredRides.forEach((ride) => {
       const card = document.createElement("article");
       card.className = isTourGrid ? "card tour-card" : "card";
@@ -188,6 +191,8 @@
       lbCount.textContent = `${index + 1} / ${items.length}`;
     }
 
+    if (galleryRoot.children.length > 0) return;
+
     items.forEach((item, i) => {
       const article = document.createElement("article");
       article.className = "gallery-item";
@@ -252,7 +257,7 @@
       rideMap[ride.key] = ride.name;
     });
 
-    if (quickPickRoot && rideInterestInput) {
+    if (quickPickRoot && rideInterestInput && quickPickRoot.children.length === 0) {
       featuredRides.forEach((ride) => {
         const button = document.createElement("button");
         button.type = "button";
