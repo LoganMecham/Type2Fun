@@ -14,7 +14,6 @@
       <div class="container site-header__inner">
         <a href="./index.html" class="site-brand" aria-label="Type 2 Fun home">
           <img data-site-logo class="site-brand__logo" src="Cyclist%20logo%20with%20mountain%20and%20sun.png" alt="Type 2 Fun cyclist logo" />
-          <span class="site-brand__text">Type 2 Fun</span>
         </a>
         <nav aria-label="Main navigation">
           <ul class="site-nav">
@@ -52,20 +51,15 @@
               <p><label for="name">Name</label><input id="name" name="name" required /></p>
               <p><label for="email">Email</label><input id="email" type="email" name="email" required /></p>
               <p>
-                <label for="tour-interest">Tour interest</label>
-                <select id="tour-interest" name="tour">
-                  <option value="general">General question</option>
-                  <option value="cathedral">Cathedral Valley Ride</option>
-                  <option value="goblin">Goblin Valley Desert Trails Ride</option>
-                  <option value="buckhorn">Buckhorn Wash Ride + Wedge Camping</option>
-                  <option value="good-water-rim">Good Water Rim Trail</option>
-                  <option value="white-rim">White Rim Road</option>
-                  <option value="skyline-drive">Skyline Drive</option>
-                  <option value="burr-trail">Burr Trail</option>
-                  <option value="weekly-spanish-fork">Weekly Ride: Spanish Fork Saturdays</option>
-                </select>
+                <label for="ride-interest">Ride interest</label>
+                <input id="ride-interest" name="rideInterest" placeholder="Example: White Rim Road" />
               </p>
-              <p><label for="subject">Subject</label><input id="subject" name="subject" value="Tour booking question" /></p>
+              <div>
+                <p><strong>Quick picks from featured rides:</strong></p>
+                <div id="ride-quick-picks" class="button-row" aria-live="polite"></div>
+              </div>
+              <p><label for="custom-ride-request">Custom ride request</label><input id="custom-ride-request" name="customRideRequest" placeholder="Any Utah location or trail you want to ride" /></p>
+              <p><label for="subject">Subject</label><input id="subject" name="subject" value="Ride booking question" /></p>
               <p><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Share dates, rider count, and skill levels."></textarea></p>
               <button class="btn btn-primary" type="submit">Open email draft</button>
             </form>
