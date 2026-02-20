@@ -30,6 +30,12 @@
     }
   ];
 
+  function redirectIndexPath() {
+    if (!location.pathname.endsWith("/index.html")) return;
+    const newPath = `${location.pathname.slice(0, -"index.html".length)}`;
+    location.replace(`${newPath}${location.search}${location.hash}`);
+  }
+
   function initLogo() {
     const logo = document.querySelector("[data-site-logo]");
     if (!logo) return;
@@ -37,26 +43,35 @@
   }
 
   function initNavCurrent() {
-    const page = location.pathname.split("/").pop() || "index.html";
+    const pathname = location.pathname;
+    const page = pathname.split("/").pop() || "";
+    const isHomePath = pathname.endsWith("/") || page === "index.html";
+
     document.querySelectorAll(".site-nav a").forEach((link) => {
       const target = (link.getAttribute("href") || "").replace(/^\.\//, "");
-      if (target === page) link.setAttribute("aria-current", "page");
-      else link.removeAttribute("aria-current");
+      const isHomeLink = target === "";
+      if ((isHomeLink && isHomePath) || (!isHomeLink && target === page)) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
     });
   }
 
   function renderFeaturedCards(rootId) {
     const root = document.getElementById(rootId);
     if (!root) return;
+    const isTourGrid = rootId === "featured-rides-tours";
+
     root.innerHTML = "";
     featuredRides.forEach((ride) => {
       const card = document.createElement("article");
-      card.className = "card";
+      card.className = isTourGrid ? "card tour-card" : "card";
       card.innerHTML = `
         <h3>${ride.name}</h3>
         <p><strong>Area:</strong> ${ride.area}</p>
         <p>${ride.description}</p>
-        <a class="btn btn-secondary" href="./contact.html?ride=${ride.contactKey}">Book this ride</a>
+        <a class="btn btn-primary${isTourGrid ? " tour-card__action" : ""}" href="./contact.html?ride=${ride.contactKey}">Book this tour</a>
       `;
       root.appendChild(card);
     });
@@ -278,6 +293,8 @@
       location.href = `mailto:type2funinc@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
     });
   }
+
+  redirectIndexPath();
 
   document.addEventListener("DOMContentLoaded", () => {
     initLogo();

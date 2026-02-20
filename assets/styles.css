@@ -39,8 +39,8 @@ a { color: var(--brand-dark); }
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  min-height: 86px;
-  padding: 0.6rem 0;
+  min-height: 98px;
+  padding: 0.95rem 0;
 }
 .site-brand {
   display: inline-flex;
@@ -50,7 +50,7 @@ a { color: var(--brand-dark); }
   font-weight: 700;
 }
 .site-brand__logo {
-  height: 64px;
+  height: 68px;
   width: auto;
   object-fit: contain;
 }
@@ -124,6 +124,19 @@ p { margin: 0 0 0.9rem; color: var(--muted); }
   border: 1px solid var(--line);
   padding: 1rem;
   box-shadow: var(--shadow);
+}
+
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.tour-card__action {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .badge {
   background: #f0faf8;
@@ -211,6 +224,7 @@ input,select,textarea { width:100%; padding:0.6rem; border-radius:10px; border:1
 .site-footer p { margin: 0.4rem 0; }
 
 @media (max-width: 700px) {
-  .site-header__inner { flex-direction: column; padding: 0.7rem 0; }
-  .site-nav { justify-content: center; }
+  .site-header__inner { min-height: 90px; padding: 0.75rem 0; }
+  .site-brand__logo { height: 58px; }
+  .site-nav { justify-content: flex-end; }
 }
