@@ -7,20 +7,33 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-brand" aria-label="Type2Fun Home">
+          <img
+            class="site-brand__logo"
+            src="Cyclist logo with mountain and sun.png"
+            alt="Type2Fun logo"
+          />
+        </a>
+        <nav aria-label="Primary navigation">
+          <ul class="site-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
       <div class="hero__content">
-        <img
-          class="hero__logo"
-          src="Cyclist logo with mountain and sun.png"
-          alt="Type2Fun logo"
-        />
         <h1>Guided Bike Tours Around Utah</h1>
         <p>
           Adventure-ready rides with local guides who help you explore Utah's
           best terrain.
         </p>
       </div>
-    </header>
+    </section>
 
     <main>
       <section class="card" aria-labelledby="calendar-heading">
