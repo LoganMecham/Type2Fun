@@ -17,10 +17,55 @@ body {
   background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 50%, #f7fdf5 100%);
 }
 
+.site-header {
+  background: var(--brand-white);
+  border-bottom: 1px solid #e2e2e2;
+  padding: 0.7rem 1rem;
+}
+
+.site-header__inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-brand__logo {
+  width: min(58vw, 260px);
+  display: block;
+}
+
+.site-nav {
+  list-style: none;
+  display: flex;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: #232323;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  text-decoration: underline;
+}
+
 .hero {
-  background: var(--brand-black);
-  color: var(--brand-white);
-  padding: 1.5rem 1rem 2rem;
+  background: var(--brand-white);
+  color: var(--brand-black);
+  padding: 1rem 1rem 1.5rem;
   border-bottom: 6px solid var(--brand-orange);
 }
 
@@ -30,19 +75,14 @@ body {
   text-align: center;
 }
 
-.hero__logo {
-  width: min(100%, 380px);
-  background: transparent;
-}
-
 .hero h1 {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0 0.5rem;
   color: var(--brand-orange);
 }
 
 .hero p {
   margin: 0;
-  color: #f2f2f2;
+  color: #252525;
 }
 
 main {
@@ -154,6 +194,77 @@ h2 {
 a {
   color: var(--brand-green);
   font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.gallery-item {
+  margin: 0;
+}
+
+.gallery-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  border: 2px solid #d9d9d9;
+}
+
+.gallery-button {
+  border: 0;
+  background: none;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox__content {
+  position: relative;
+  width: min(900px, 95vw);
+  background: #0f0f0f;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.lightbox__image {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  border: 0;
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 @media (max-width: 640px) {
