@@ -39,8 +39,8 @@ a { color: var(--brand-dark); }
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  min-height: 98px;
-  padding: 0.95rem 0;
+  min-height: 128px;
+  padding: 1.1rem 0;
 }
 .site-brand {
   display: inline-flex;
@@ -50,7 +50,7 @@ a { color: var(--brand-dark); }
   font-weight: 700;
 }
 .site-brand__logo {
-  height: 68px;
+  height: 96px;
   width: auto;
   object-fit: contain;
 }
@@ -65,9 +65,26 @@ a { color: var(--brand-dark); }
 .site-nav a {
   text-decoration: none;
   color: var(--text);
-  padding: 0.45rem 0.8rem;
+  padding: 0.42rem 0.72rem;
   border-radius: 999px;
   font-weight: 600;
+}
+
+.featured-rides-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.featured-mini-card {
+  background: #f0faf8;
+  border: 1px solid #cde8e2;
+  border-radius: 12px;
+  padding: 0.7rem 0.9rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  text-align: center;
 }
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
@@ -224,7 +241,8 @@ input,select,textarea { width:100%; padding:0.6rem; border-radius:10px; border:1
 .site-footer p { margin: 0.4rem 0; }
 
 @media (max-width: 700px) {
-  .site-header__inner { min-height: 90px; padding: 0.75rem 0; }
-  .site-brand__logo { height: 58px; }
+  .site-header__inner { min-height: 104px; padding: 0.85rem 0; }
+  .site-brand__logo { height: 72px; }
+  .site-nav a { padding: 0.38rem 0.62rem; font-size: 0.95rem; }
   .site-nav { justify-content: flex-end; }
 }
