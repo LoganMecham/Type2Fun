@@ -1,4 +1,35 @@
 (function () {
+  const featuredRides = [
+    {
+      key: "cathedral-valley",
+      name: "Cathedral Valley Ride",
+      area: "Capitol Reef area",
+      description: "A dramatic Capitol Reef area ride with big views, rolling dirt roads, and stops for photos and geology stories.",
+      contactKey: "cathedral-valley"
+    },
+    {
+      key: "goblin-valley",
+      name: "Goblin Valley Desert Trails Ride",
+      area: "Goblin Valley State Park area",
+      description: "Flowing desert trails around hoodoos and open slickrock zones with pacing options for mixed rider groups.",
+      contactKey: "goblin-valley"
+    },
+    {
+      key: "buckhorn-wedge",
+      name: "Buckhorn Wash + Wedge Option",
+      area: "Buckhorn Wash and the Wedge",
+      description: "A canyon-country ride with an optional overnight camp at the Wedge for sunset, stars, and next-day riding.",
+      contactKey: "buckhorn-wedge"
+    },
+    {
+      key: "white-rim",
+      name: "White Rim Road",
+      area: "Canyonlands",
+      description: "A classic multi-day loop with huge canyon views and remote desert terrain.",
+      contactKey: "white-rim"
+    }
+  ];
+
   function initLogo() {
     const logo = document.querySelector("[data-site-logo]");
     if (!logo) return;
@@ -11,6 +42,23 @@
       const target = (link.getAttribute("href") || "").replace(/^\.\//, "");
       if (target === page) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");
+    });
+  }
+
+  function renderFeaturedCards(rootId) {
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    root.innerHTML = "";
+    featuredRides.forEach((ride) => {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${ride.name}</h3>
+        <p><strong>Area:</strong> ${ride.area}</p>
+        <p>${ride.description}</p>
+        <a class="btn btn-secondary" href="./contact.html?ride=${ride.contactKey}">Book this ride</a>
+      `;
+      root.appendChild(card);
     });
   }
 
@@ -178,35 +226,55 @@
   function initContactPrefill() {
     const form = document.getElementById("contact-form");
     if (!form) return;
-    const params = new URLSearchParams(location.search);
-    const tour = params.get("tour");
-    const ride = params.get("ride");
-    const tourMap = {
-      cathedral: "Cathedral Valley Ride",
-      goblin: "Goblin Valley Desert Trails Ride",
-      buckhorn: "Buckhorn Wash Ride + Wedge Camping",
-      "good-water-rim": "Good Water Rim Trail",
-      "white-rim": "White Rim Road",
-      "skyline-drive": "Skyline Drive",
-      "burr-trail": "Burr Trail",
-      "weekly-spanish-fork": "Weekly Ride: Spanish Fork Saturdays"
-    };
-    const selected = tour || ride;
-    const select = document.getElementById("tour-interest");
+
+    const rideInterestInput = document.getElementById("ride-interest");
     const subjectInput = document.getElementById("subject");
-    if (selected && tourMap[selected]) {
-      if (select) select.value = selected;
-      if (subjectInput) subjectInput.value = `Booking request: ${tourMap[selected]}`;
+    const quickPickRoot = document.getElementById("ride-quick-picks");
+
+    const rideMap = {};
+    featuredRides.forEach((ride) => {
+      rideMap[ride.contactKey] = ride.name;
+      rideMap[ride.key] = ride.name;
+    });
+
+    if (quickPickRoot && rideInterestInput) {
+      featuredRides.forEach((ride) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "quick-pick";
+        button.textContent = ride.name;
+        button.addEventListener("click", () => {
+          rideInterestInput.value = ride.name;
+        });
+        quickPickRoot.appendChild(button);
+      });
+    }
+
+    const params = new URLSearchParams(location.search);
+    const selected = params.get("ride") || params.get("tour");
+    if (selected && rideMap[selected] && rideInterestInput) {
+      rideInterestInput.value = rideMap[selected];
+      if (subjectInput) subjectInput.value = `Booking request: ${rideMap[selected]}`;
     }
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const fd = new FormData(form);
-      const name = fd.get("name");
-      const email = fd.get("email");
-      const subject = fd.get("subject") || "Tour booking question";
-      const message = fd.get("message");
-      const body = `Name: ${name}%0AEmail: ${email}%0ATour: ${fd.get("tour")}%0A%0A${encodeURIComponent(message)}`;
+      const name = fd.get("name") || "";
+      const email = fd.get("email") || "";
+      const subject = fd.get("subject") || "Ride booking question";
+      const rideInterest = fd.get("rideInterest") || "General question";
+      const customRideRequest = fd.get("customRideRequest") || "";
+      const message = fd.get("message") || "";
+      const bodyLines = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Ride interest: ${rideInterest}`,
+        `Custom ride request: ${customRideRequest}`,
+        "",
+        `${message}`
+      ];
+      const body = encodeURIComponent(bodyLines.join("\n"));
       location.href = `mailto:type2funinc@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
     });
   }
@@ -214,6 +282,8 @@
   document.addEventListener("DOMContentLoaded", () => {
     initLogo();
     initNavCurrent();
+    renderFeaturedCards("featured-rides-home");
+    renderFeaturedCards("featured-rides-tours");
     initCalendar();
     initGallery();
     initContactPrefill();
