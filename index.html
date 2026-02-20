@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Type2Fun guided bike tours in Utah. Weekly rides, local support, and outdoor adventure."
+      content="Type 2 Fun guided biking tours with local routes, scenic stops, and friendly outdoor adventure experiences."
     />
-    <title>Type2Fun | Guided Utah Bike Tours</title>
+    <meta name="theme-color" content="#ffffff" />
+    <title>Type 2 Fun | Guided Biking Tours</title>
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="./index.html" class="site-brand" aria-label="Type2Fun Home">
-          <img
-            class="site-brand__logo"
-            src="assets/logo.png"
-            alt="Type2Fun logo"
-            onerror="this.style.display='none'"
-          />
-                  <span class="site-brand__text">Type2Fun</span>
+        <a href="./index.html" class="site-brand" aria-label="Type 2 Fun Home">
+          <img class="site-brand__logo" src="assets/logo.png" alt="Type 2 Fun logo" onerror="this.style.display='none'" />
+          <span class="site-brand__text">Type 2 Fun</span>
         </a>
         <nav aria-label="Primary navigation">
           <ul class="site-nav">
@@ -31,62 +27,172 @@
       </div>
     </header>
 
-    <section class="hero">
-      <div class="container hero__content">
-        <h1>Ride Utah with local guides who know every great trail.</h1>
-        <p>
-          Type2Fun delivers simple, high-quality guided bike tours with a focus
-          on fun, fitness, and mountain views.
-        </p>
-        <div class="cta-row">
-          <a class="button" href="#contact">Book Your Ride</a>
-        </div>
-      </div>
-    </section>
-
     <main>
+      <section class="hero">
+        <div class="container hero__content">
+          <p class="eyebrow">Guided Biking Tours</p>
+          <h1>Find your favorite ride with local guides who keep it fun and stress-free.</h1>
+          <p>
+            Type 2 Fun creates relaxed, outdoorsy bike experiences with route planning, scenic stops,
+            and support so you can enjoy the ride.
+          </p>
+          <a class="button" href="#booking-contact">Book a Tour</a>
+        </div>
+      </section>
+
       <section class="section">
-        <div class="container grid-two">
+        <div class="container">
+          <h2>Tour Options</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>Sunrise Valley Spin</h3>
+              <p><strong>Duration:</strong> 2 hours</p>
+              <p><strong>Difficulty:</strong> Easy</p>
+              <p><strong>Price:</strong> From $55 per rider</p>
+              <p>A scenic morning cruise with coffee stop options and gentle rolling terrain.</p>
+            </article>
+            <article class="card">
+              <h3>Canyon Climber</h3>
+              <p><strong>Duration:</strong> 3.5 hours</p>
+              <p><strong>Difficulty:</strong> Moderate</p>
+              <p><strong>Price:</strong> From $85 per rider</p>
+              <p>Steady climbs, cool descents, and awesome viewpoints for confident riders.</p>
+            </article>
+            <article class="card">
+              <h3>Trail + Town Explorer</h3>
+              <p><strong>Duration:</strong> 3 hours</p>
+              <p><strong>Difficulty:</strong> Easy to moderate</p>
+              <p><strong>Price:</strong> From $70 per rider</p>
+              <p>A mixed-surface route with local history stops and classic photo moments.</p>
+            </article>
+          </div>
+          <p class="note">Pricing and routes can be customized for private groups, clubs, and events.</p>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container split-grid">
           <article class="card">
-            <h2>Tour Details</h2>
+            <h2>What’s Included</h2>
             <ul>
-              <li>Pricing is custom so each route matches your goals and skill level.</li>
-              <li>Gear rentals available: bikes, bags, and tires.</li>
-              <li>Multi-day tours can include vehicle support.</li>
+              <li>Friendly local guide</li>
+              <li>Route planning matched to your group</li>
+              <li>Scenic and snack/photo stops</li>
+              <li>On-route ride support</li>
+              <li>Trip photos shared after the ride</li>
+              <li>Bike rentals available on request? (placeholder)</li>
             </ul>
           </article>
           <article class="card">
-            <h2>Weekly Schedule</h2>
-            <ul class="schedule">
-              <li><strong>Saturday Guided Ride</strong> <span>7:00 AM - 9:00 AM</span></li>
-              <li><strong>Location</strong> <span>Spanish Fork, Utah</span></li>
-              <li><strong>Booking</strong> <span>Reserve ahead to lock in your spot</span></li>
+            <h2>What to Bring</h2>
+            <ul>
+              <li>Helmet</li>
+              <li>Water bottles</li>
+              <li>Snacks</li>
+              <li>Weather-ready riding layers</li>
+              <li>Sunscreen</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <section id="contact" class="section section--soft">
-        <div class="container">
+      <section class="section">
+        <div class="container split-grid">
           <article class="card">
-            <h2>Contact Type2Fun</h2>
-            <div class="contact-list">
-              <p><strong>Phone:</strong> <a href="tel:8015138160">801-513-8160</a></p>
-              <p>
-                <strong>Email:</strong>
-                <a href="mailto:type2funinc@gmail.com">type2funinc@gmail.com</a>
-              </p>
+            <h2>Safety & Rider Requirements</h2>
+            <ul>
+              <li>Skill level: riders should be comfortable braking, shifting, and climbing mild grades.</li>
+              <li>Minimum age: 12+ with guardian, 18+ for solo booking (placeholder).</li>
+              <li>Signed waiver required before tour departure (placeholder).</li>
+            </ul>
+          </article>
+          <article class="card calendar-card">
+            <div class="calendar-header-row">
+              <h2>Tour Calendar</h2>
+              <div class="calendar-controls">
+                <button type="button" id="prev-month" aria-label="Previous month">←</button>
+                <p id="calendar-month" aria-live="polite"></p>
+                <button type="button" id="next-month" aria-label="Next month">→</button>
+              </div>
             </div>
+            <p class="note">Sample availability: Fridays and Saturdays are typical tour days.</p>
+            <div id="calendar-grid" class="calendar-grid" aria-label="Monthly tour availability calendar"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container split-grid">
+          <article class="card">
+            <h2>Meeting Location & Service Area</h2>
+            <p><strong>Typical start:</strong> Spanish Fork trailhead meetup (exact point shared after booking).</p>
+            <p><strong>Service area:</strong> Utah County, Wasatch Front routes, and nearby canyon roads.</p>
+          </article>
+          <article class="card">
+            <h2>About the Guide</h2>
+            <p>
+              Type 2 Fun is built around the idea that the best rides are challenging enough to feel rewarding,
+              but welcoming enough that everyone leaves smiling. Expect local knowledge, flexible pacing,
+              and a supportive vibe for every rider.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Reviews</h2>
+          <div class="card-grid card-grid--three">
+            <article class="card">
+              <p>“Exactly what we hoped for: great route, great guide, and no stress logistics.”</p>
+              <p class="reviewer">— Placeholder Rider A</p>
+            </article>
+            <article class="card">
+              <p>“Fun pace, beautiful scenery, and the support stops made it perfect for our group.”</p>
+              <p class="reviewer">— Placeholder Rider B</p>
+            </article>
+            <article class="card">
+              <p>“We felt safe and confident the whole time. We’ll definitely book again.”</p>
+              <p class="reviewer">— Placeholder Rider C</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="booking-contact" class="section section--soft">
+        <div class="container split-grid">
+          <article class="card">
+            <h2>Booking & Contact</h2>
+            <p><strong>Phone:</strong> <a href="tel:8015138160">801-513-8160</a></p>
+            <p><strong>Email:</strong> <a href="mailto:type2funinc@gmail.com">type2funinc@gmail.com</a></p>
+            <p class="note">Reach out with group size, preferred dates, and ride goals.</p>
+          </article>
+          <article class="card">
+            <h2>Quick Inquiry</h2>
+            <form action="mailto:type2funinc@gmail.com" method="post" enctype="text/plain" class="contact-form">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your ideal tour."></textarea>
+
+              <button type="submit" class="button">Send Inquiry</button>
+            </form>
           </article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p><strong>Type2Fun</strong> | Guided Utah Bike Tours</p>
+      <div class="container footer-inner">
+        <p><strong>Type 2 Fun</strong> | Guided Utah Bike Tours</p>
         <p>Phone: 801-513-8160 | Email: type2funinc@gmail.com</p>
       </div>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

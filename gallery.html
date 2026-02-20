@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Photo gallery from Type2Fun guided bike tours across Utah trails."
+      content="Browse Type 2 Fun biking tour photos from scenic roads, canyon routes, and outdoor group rides."
     />
-    <title>Type2Fun | Tour Gallery</title>
+    <meta name="theme-color" content="#ffffff" />
+    <title>Type 2 Fun | Tour Gallery</title>
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="./index.html" class="site-brand" aria-label="Type2Fun Home">
-          <img
-            class="site-brand__logo"
-            src="assets/logo.png"
-            alt="Type2Fun logo"
-            onerror="this.style.display='none'"
-          />
-                  <span class="site-brand__text">Type2Fun</span>
+        <a href="./index.html" class="site-brand" aria-label="Type 2 Fun Home">
+          <img class="site-brand__logo" src="assets/logo.png" alt="Type 2 Fun logo" onerror="this.style.display='none'" />
+          <span class="site-brand__text">Type 2 Fun</span>
         </a>
         <nav aria-label="Primary navigation">
           <ul class="site-nav">
@@ -31,19 +27,20 @@
       </div>
     </header>
 
-    <section class="hero">
-      <div class="container hero__content">
-        <h1>Tour Gallery</h1>
-        <p>Photos from recent rides across Utah roads, trails, and mountain routes.</p>
-      </div>
-    </section>
-
     <main>
+      <section class="hero hero--compact">
+        <div class="container hero__content">
+          <p class="eyebrow">Ride Highlights</p>
+          <h1>Gallery</h1>
+          <p>A few snapshots from Type 2 Fun tours across Utah roads, trails, and mountain views.</p>
+        </div>
+      </section>
+
       <section class="section section--soft">
         <div class="container">
           <article class="card">
             <h2>Recent Photos</h2>
-            <p>Select any image to open the lightbox. Use keyboard arrows to navigate.</p>
+            <p>Select a photo to open the lightbox. Use left/right arrow keys to navigate and Escape to close.</p>
             <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
           </article>
         </div>
@@ -51,8 +48,8 @@
     </main>
 
     <div class="lightbox" id="lightbox" hidden>
-      <div class="lightbox__content">
-        <button id="lightbox-close" class="icon-btn" type="button" aria-label="Close image">Close</button>
+      <div class="lightbox__content" role="dialog" aria-modal="true" aria-label="Expanded gallery image">
+        <button id="lightbox-close" class="icon-btn" type="button" aria-label="Close image">Close ✕</button>
         <img id="lightbox-image" class="lightbox__image" src="" alt="Expanded gallery image" />
         <div class="lightbox__controls">
           <button id="lightbox-prev" class="icon-btn" type="button" aria-label="Previous image">← Prev</button>
@@ -62,8 +59,8 @@
     </div>
 
     <footer class="site-footer">
-      <div class="container">
-        <p><strong>Type2Fun</strong> | Guided Utah Bike Tours</p>
+      <div class="container footer-inner">
+        <p><strong>Type 2 Fun</strong> | Guided Utah Bike Tours</p>
         <p>Phone: 801-513-8160 | Email: type2funinc@gmail.com</p>
       </div>
     </footer>

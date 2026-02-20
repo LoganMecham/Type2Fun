@@ -2,10 +2,10 @@ const candidateImages = [
   "assets/gallery/IMG_2006.jpeg",
   "assets/gallery/IMG_2038.jpeg",
   "assets/gallery/IMG_2412.jpeg",
-  "assets/gallery/IMG_5221.jpeg"
+  "assets/gallery/IMG_5221.png"
 ];
 
-// Add more photos by uploading them into assets/gallery and adding their path above.
+// Add more photos by uploading to assets/gallery and then adding each relative file path to candidateImages.
 
 const galleryGrid = document.getElementById("gallery-grid");
 const lightbox = document.getElementById("lightbox");
@@ -27,10 +27,11 @@ function imageExists(path) {
 }
 
 function renderGallery() {
+  if (!galleryGrid) return;
   galleryGrid.innerHTML = "";
 
   if (images.length === 0) {
-    galleryGrid.innerHTML = "<p>No gallery images found yet.</p>";
+    galleryGrid.innerHTML = "<p>No gallery images found yet. Add files to assets/gallery to show photos here.</p>";
     return;
   }
 
@@ -43,7 +44,7 @@ function renderGallery() {
     const thumb = document.createElement("img");
     thumb.className = "gallery-thumb";
     thumb.src = path;
-    thumb.alt = `Type2Fun ride photo ${index + 1}`;
+    thumb.alt = `Type 2 Fun ride photo ${index + 1}`;
 
     button.appendChild(thumb);
     button.addEventListener("click", () => openLightbox(index));
@@ -51,9 +52,13 @@ function renderGallery() {
   });
 }
 
+function updateLightboxImage() {
+  lightboxImage.src = images[currentIndex];
+}
+
 function openLightbox(index) {
   currentIndex = index;
-  lightboxImage.src = images[currentIndex];
+  updateLightboxImage();
   lightbox.hidden = false;
 }
 
@@ -65,36 +70,38 @@ function closeLightbox() {
 function showPrev() {
   if (images.length === 0) return;
   currentIndex = (currentIndex - 1 + images.length) % images.length;
-  lightboxImage.src = images[currentIndex];
+  updateLightboxImage();
 }
 
 function showNext() {
   if (images.length === 0) return;
   currentIndex = (currentIndex + 1) % images.length;
-  lightboxImage.src = images[currentIndex];
+  updateLightboxImage();
 }
 
-closeButton.addEventListener("click", closeLightbox);
-prevButton.addEventListener("click", showPrev);
-nextButton.addEventListener("click", showNext);
+if (closeButton && prevButton && nextButton && lightbox) {
+  closeButton.addEventListener("click", closeLightbox);
+  prevButton.addEventListener("click", showPrev);
+  nextButton.addEventListener("click", showNext);
 
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) {
-    closeLightbox();
-  }
-});
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
 
-document.addEventListener("keydown", (event) => {
-  if (lightbox.hidden) return;
+  document.addEventListener("keydown", (event) => {
+    if (lightbox.hidden) return;
 
-  if (event.key === "Escape") {
-    closeLightbox();
-  } else if (event.key === "ArrowLeft") {
-    showPrev();
-  } else if (event.key === "ArrowRight") {
-    showNext();
-  }
-});
+    if (event.key === "Escape") {
+      closeLightbox();
+    } else if (event.key === "ArrowLeft") {
+      showPrev();
+    } else if (event.key === "ArrowRight") {
+      showNext();
+    }
+  });
+}
 
 async function initGallery() {
   const checks = await Promise.all(candidateImages.map((path) => imageExists(path)));
