@@ -50,12 +50,9 @@ a { color: var(--brand-dark); }
   font-weight: 700;
 }
 .site-brand__logo {
-  width: 48px;
-  height: 48px;
+  height: 52px;
+  width: auto;
   object-fit: contain;
-  border-radius: 50%;
-  border: 2px solid #dff3ef;
-  background: #fff;
 }
 .site-brand__text { font-size: 1.05rem; }
 
@@ -199,7 +196,8 @@ p { margin: 0 0 0.9rem; color: var(--muted); }
 label { display:block; font-weight:700; margin-bottom:0.2rem; }
 input,select,textarea { width:100%; padding:0.6rem; border-radius:10px; border:1px solid #b9cfd7; font: inherit; }
 
-.site-footer { border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; color: var(--muted); }
+.site-footer { border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; color: var(--muted); background: #fff; }
+.site-footer p { margin: 0.4rem 0; }
 
 @media (max-width: 700px) {
   .site-header__inner { flex-direction: column; padding: 0.5rem 0; }

@@ -3,23 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Type 2 Fun | Schedule</title>
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="index.html" class="site-brand" aria-label="Type 2 Fun home">
+        <a href="./index.html" class="site-brand" aria-label="Type 2 Fun home">
           <img data-site-logo class="site-brand__logo" src="Cyclist%20logo%20with%20mountain%20and%20sun.png" alt="Type 2 Fun cyclist logo" />
           <span class="site-brand__text">Type 2 Fun</span>
         </a>
         <nav aria-label="Main navigation">
           <ul class="site-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="tours.html">Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./tours.html">Tours</a></li>
+            <li><a href="./schedule.html">Schedule</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -46,12 +49,33 @@
           </div>
           <div id="calendar-grid" class="calendar-grid" aria-label="Monthly calendar"></div>
           <p>Available tags mark common tour days and limited tags mark example dates with fewer spots.</p>
-          <a class="btn btn-primary" href="contact.html">Check a date with us</a>
+          <div class="button-row">
+            <a class="btn btn-primary" href="./contact.html">Check a date with us</a>
+            <a class="btn btn-secondary" href="./tours.html">Compare ride options</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-soft">
+        <div class="container grid">
+          <article class="card">
+            <h3>Typical weekly rhythm</h3>
+            <p>Most tours are scheduled Friday through Sunday, with custom weekday options for private groups.</p>
+          </article>
+          <article class="card">
+            <h3>Best booking window</h3>
+            <p>For spring and fall red-rock dates, booking 2 to 6 weeks in advance gives the best flexibility.</p>
+          </article>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer"><div class="container"><p><strong>Type 2 Fun</strong> · Guided biking tours across Utah trail country.</p></div></footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p><strong>Type 2 Fun</strong> · Guided biking tours across Utah trail country.</p>
+        <p><strong>Phone:</strong> <a href="tel:+18015138160">801-513-8160</a> · <strong>Email:</strong> <a href="mailto:type2funinc@gmail.com">type2funinc@gmail.com</a></p>
+      </div>
+    </footer>
     <script src="assets/site.js"></script>
   </body>
 </html>

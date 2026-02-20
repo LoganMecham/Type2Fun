@@ -1,32 +1,14 @@
 (function () {
-  const logoCandidates = [
-    "assets/logo.png",
-    "Cyclist%20logo%20with%20mountain%20and%20sun.png"
-  ];
-
-  function initLogoFallback() {
+  function initLogo() {
     const logo = document.querySelector("[data-site-logo]");
     if (!logo) return;
-
-    let index = 0;
-    function tryNext() {
-      if (index >= logoCandidates.length) {
-        logo.style.visibility = "hidden";
-        return;
-      }
-      logo.src = logoCandidates[index++];
-    }
-
-    logo.addEventListener("error", tryNext);
-    if (logoCandidates[0] !== logo.getAttribute("src")) {
-      tryNext();
-    }
+    logo.src = "Cyclist%20logo%20with%20mountain%20and%20sun.png";
   }
 
   function initNavCurrent() {
     const page = location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".site-nav a").forEach((link) => {
-      const target = link.getAttribute("href");
+      const target = (link.getAttribute("href") || "").replace(/^\.\//, "");
       if (target === page) link.setAttribute("aria-current", "page");
       else link.removeAttribute("aria-current");
     });
@@ -170,8 +152,14 @@
       lightbox.hidden = true;
       lbImage.src = "";
     }
-    function showNext() { index = (index + 1) % items.length; update(); }
-    function showPrev() { index = (index - 1 + items.length) % items.length; update(); }
+    function showNext() {
+      index = (index + 1) % items.length;
+      update();
+    }
+    function showPrev() {
+      index = (index - 1 + items.length) % items.length;
+      update();
+    }
 
     close.addEventListener("click", closeBox);
     next.addEventListener("click", showNext);
@@ -192,16 +180,23 @@
     if (!form) return;
     const params = new URLSearchParams(location.search);
     const tour = params.get("tour");
+    const ride = params.get("ride");
     const tourMap = {
       cathedral: "Cathedral Valley Ride",
       goblin: "Goblin Valley Desert Trails Ride",
-      buckhorn: "Buckhorn Wash Ride + Wedge Camping"
+      buckhorn: "Buckhorn Wash Ride + Wedge Camping",
+      "good-water-rim": "Good Water Rim Trail",
+      "white-rim": "White Rim Road",
+      "skyline-drive": "Skyline Drive",
+      "burr-trail": "Burr Trail",
+      "weekly-spanish-fork": "Weekly Ride: Spanish Fork Saturdays"
     };
+    const selected = tour || ride;
     const select = document.getElementById("tour-interest");
     const subjectInput = document.getElementById("subject");
-    if (tour && tourMap[tour]) {
-      if (select) select.value = tour;
-      if (subjectInput) subjectInput.value = `Booking request: ${tourMap[tour]}`;
+    if (selected && tourMap[selected]) {
+      if (select) select.value = selected;
+      if (subjectInput) subjectInput.value = `Booking request: ${tourMap[selected]}`;
     }
 
     form.addEventListener("submit", (e) => {
@@ -212,12 +207,12 @@
       const subject = fd.get("subject") || "Tour booking question";
       const message = fd.get("message");
       const body = `Name: ${name}%0AEmail: ${email}%0ATour: ${fd.get("tour")}%0A%0A${encodeURIComponent(message)}`;
-      location.href = `mailto:type2funrides@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      location.href = `mailto:type2funinc@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
     });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    initLogoFallback();
+    initLogo();
     initNavCurrent();
     initCalendar();
     initGallery();
