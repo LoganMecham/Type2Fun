@@ -171,6 +171,16 @@
         src: "assets/gallery/IMG_5221.png",
         location: "Buckhorn Wash riding and camping at the Wedge",
         alt: "Sunset bike camp scene near Buckhorn Wash and the Wedge"
+      },
+      {
+        src: "assets/gallery/IMG_5812.jpeg",
+        location: "Bonneville Shoreline Trail",
+        alt: "Bonneville Shoreline Trail in Utah"
+      },
+      {
+        src: "assets/gallery/IMG_5811.jpeg",
+        location: "Cathedral Valley Trail",
+        alt: "Cathedral Valley Trail in Utah"
       }
     ];
 
