@@ -1,5 +1,4 @@
 const candidateImages = [
-  "assets/gallery/IMG_2006.jpeg",
   "assets/gallery/IMG_2038.jpeg",
   "assets/gallery/IMG_2412.jpeg",
   "assets/gallery/IMG_5221.png"
