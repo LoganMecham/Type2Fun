@@ -153,11 +153,6 @@
 
     const items = [
       {
-        src: "assets/gallery/IMG_2006.jpeg",
-        location: "Cathedral Valley, Capitol Reef National Park",
-        alt: "Cyclists riding in Cathedral Valley under tall desert formations"
-      },
-      {
         src: "assets/gallery/IMG_2038.jpeg",
         location: "Cathedral Valley, Capitol Reef National Park",
         alt: "Riders and bikes at a Cathedral Valley overlook"
